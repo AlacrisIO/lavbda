@@ -1,0 +1,26 @@
+.reveal h1 { font-size: 1.2em; }
+
+.noborder table, th, td {
+    border:none; !important
+    align:center; !important
+}
+#noborder table, th, td {
+    border:none; !important
+    align:center; !important
+}
+
+table, th, td {
+    border: 1px solid black;
+    color: #ddd;
+}
+
+html {
+  background-color: #fff !important;
+}
+
+.reveal {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  font-size: 33px;
+  font-weight: normal;
+  color: #fff;
+}
