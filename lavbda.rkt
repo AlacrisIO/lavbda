@@ -286,10 +286,10 @@
 
 (gslide () @h1{The Meta-Story}
  @L{Go to the mathematical essence of things.}
- @L{Strip all incidental complexity.}
+ @L{Itself the essence of category theory.}
  @L{Identify what the domain is and isn't.}
  ~
- @L{Itself the essence of category theory.}
+ @L{Strip all incidental complexity.}
  @L{Embrace multiple levels of abstraction.}
  @L{Reconcile Semantics and Reflection.}
  @comment{
@@ -301,9 +301,9 @@
 
 (gslide () @h1{Contact}
  ~
- @L{I NEED MORE INFO!   Medium @url{https://medium.com/alacris}}
+ @L{I NEED MORE INFO!   Our website @url{https://alacris.io/}}
  ~
- @L{I WANT TO FOLLOW ALONG!   Our website @url{https://alacris.io/}}
+ @L{I WANT TO FOLLOW ALONG!   Medium @url{https://medium.com/alacris}}
  ~
  @L{I WANT TO HELP!   Telegram @url{https://t.me/alacrisio}}
  ~
