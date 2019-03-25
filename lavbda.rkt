@@ -1,29 +1,28 @@
 #lang at-exp racket @; -*- Scheme -*-
 #|
-;; Alacris: Language Abstraction for [V]erifiable Blockchain Decentralized Applications
-;; IOHK Summit, April 18th 2019
-;;
+Alacris: Language Abstraction for [V]erifiable Blockchain Decentralized Applications
+IOHK Summit, April 18th 2019
 
-;; To compile it, use:
-;;    racket lavbda.rkt > lavbda.html
+To compile it, use:
+   racket lavbda.rkt > lavbda.html
 
-;; This document is available under the bugroff license.
-;;    http://tunes.org/legalese/bugroff.html
+This document is available under the bugroff license.
+   http://tunes.org/legalese/bugroff.html
 
-;; Abstract Abstract: Alacris chief architect François-René Rideau discusses the operating system's
-;; domain specific language for developing decentralized apps that can be automatically verified to
-;; protect their assets against known attack techniques, and used to specify multi-party protocols
-;; to be run on clients and servers as well as smart contracts.
+Abstract Abstract: Alacris chief architect François-René Rideau discusses the operating system's
+domain specific language for developing decentralized apps that can be automatically verified to
+protect their assets against known attack techniques, and used to specify multi-party protocols
+to be run on clients and servers as well as smart contracts.
 
-;; Abstract: It is extremely hard to build non-trivial Blockchain Decentralized Applications (DApps)
-;; that can hope to remain secure when protecting large assets against dedicated attackers.
-;; The Alacris Operating System is growing a Domain Specific Language (DSL) to enable development
-;; of DApps that can be automatically formally verified to run correctly even when faced with
-;; adversarial behavior. More than libraries on a general purpose language, the DSL can enforce
-;; global program invariants. More than a smart contract language, the DSL specifies a multiparty
-;; protocol, from which all code can be extracted, correctly, that will run on clients and servers
-;; as well as in blockchain smart contracts. The DApp compilation strategies can be ported to all
-;; blockchains and may address interoperability, scalability and privacy.
+Abstract: It is extremely hard to build non-trivial Blockchain Decentralized Applications (DApps)
+that can hope to remain secure when protecting large assets against dedicated attackers.
+The Alacris Operating System is growing a Domain Specific Language (DSL) to enable development
+of DApps that can be automatically formally verified to run correctly even when faced with
+adversarial behavior. More than libraries on a general purpose language, the DSL can enforce
+global program invariants. More than a smart contract language, the DSL specifies a multiparty
+protocol, from which all code can be extracted, correctly, that will run on clients and servers
+as well as in blockchain smart contracts. The DApp compilation strategies can be ported to all
+blockchains and will address interoperability, scalability and privacy.
 |#
 
 (require scribble/html "reveal.rkt")
@@ -56,7 +55,7 @@
      @(d 4)𝔸@(d)bstraction for @(br)
           ⟦𝕍⟧@(d)erifiable @(br)
      @(d 4)𝔹@(d 2)lockchain @(br)
-     @(d 4)𝔻@(d 2)istributed @(br)
+     @(d 4)𝔻@(d 2)ecentralized @(br)
      @(d 4)𝔸@(d)pplications}))(td width: "33%"))]
   ~
   @p{François-René Rideau, @em{Alacris}}
@@ -90,15 +89,15 @@
 
 (gslide () @h1{Why is Blockchain Security so Hard?}
  @L{Transactions: high-stake, irreversible.}
- @fragment[fragment: 1]{The "bug budget" is @em{zero}.}
+ @p{The "bug budget" is @em{zero}.}
  @comment{Aerospace or biomedical industries}
  ~
  @L{Code is fragile.}
- @fragment[fragment: 1]{Usual languages, tools & methodologies @em{don't even try}.}
+ @p{Usual languages, tools & methodologies @em{don't even try}.}
  @comment{Parity Wallet: 400 lines, one bug, 280 M$ disappeared!}
  ~
  @L{The Internet is hostile.}
- @fragment[fragment: 1]{Each dollar controlled by a DApp is @em{a bounty to the bad guys}.})
+ @p{Each dollar controlled by a DApp is @em{a bounty to the bad guys}.})
 
 (gslide () @h1{The Solution: Logic}
  @L{Dijkstra's approach: use math, prove everything correct.}
@@ -197,12 +196,13 @@
   @L{Composable Implementation Layers: keep complexity in check.})
 
 (gslide () @h1{Composable implementation layers}
-  @L{Categories: Computations as categories.}
+  @L{Category Theory: Computations as categories.}
   @L{States as nodes ("objects"), transitions as arrows ("morphisms").}
   @L{Implementations as partial functors (profunctors).}
   @L{Game-Theoretic Safety & Liveness as composable properties.}
   @L{Code Instrumentations as natural transformations.}
-  @L{Full Abstraction.})
+  ~
+  @L{Good sign: functoriality implies full abstraction!})
 
 (gslide () @h1{Less Formal Methods}
   @L{Lightweight methods: Quickly check simple properties.}
