@@ -1,6 +1,6 @@
 #lang at-exp racket @; -*- Scheme -*-
 #|
-;; Alacris: Language Abstraction for [V]erifiable Blockchain Distributed Applications
+;; Alacris: Language Abstraction for [V]erifiable Blockchain Decentralized Applications
 ;; IOHK Summit, April 18th 2019
 ;;
 
@@ -11,11 +11,11 @@
 ;;    http://tunes.org/legalese/bugroff.html
 
 ;; Abstract Abstract: Alacris chief architect François-René Rideau discusses the operating system's
-;; domain specific language for developing distributed apps that can be automatically verified to
+;; domain specific language for developing decentralized apps that can be automatically verified to
 ;; protect their assets against known attack techniques, and used to specify multi-party protocols
 ;; to be run on clients and servers as well as smart contracts.
 
-;; Abstract: It is extremely hard to build non-trivial Blockchain Distributed Applications (DApps)
+;; Abstract: It is extremely hard to build non-trivial Blockchain Decentralized Applications (DApps)
 ;; that can hope to remain secure when protecting large assets against dedicated attackers.
 ;; The Alacris Operating System is growing a Domain Specific Language (DSL) to enable development
 ;; of DApps that can be automatically formally verified to run correctly even when faced with
