@@ -126,7 +126,7 @@ blockchains and will address interoperability, scalability and privacy.
  @L{Manually respect its unenforced global invariants… or else.}
  @L{Leaks complexity, makes verification harder.}
  ~
- @L{A DSL: can express both positive and negative.}
+ @L{A DSL: can express both positive and negative.} ;; XXXX link to full abstraction
  @L{Global invariants automatically enforced.}
  @L{Seals complexity. Makes verification easier.})
 
@@ -149,15 +149,21 @@ blockchains and will address interoperability, scalability and privacy.
  @L{Do it correctly. Do it consistently across components.})
 
 (gslide () @h1{Why not a least share VM with Contracts?}
- @L{Contract VM is for deterministic consensual computations}
- @L{optimized for cost-conscious execution}
- @L{… computation cost > 10⁶x than for cloud computing.}
+ @L{Contract VM is for deterministic consensual computations.}
+ @L{Computations cost > 10⁶ more than for cloud computing.} ;; over a million times
+ @L{Optimize programs for cost-conscious execution.}
  ~
- @L{DApp VM is for asynchronous multiparty computations}
- @L{Optimized for Auditability of Game-Theoretic Correctness}
- @L{… most computations are on private cloud computers})
+ @L{DApp VM is for asynchronous multiparty computations.}
+ @L{Most computations are on private cloud computers.}
+ @L{Optimize programs for Auditability of Correctness.}
 
-(gslide () @h1{What is in the DSL then?}
+ @comment{XXXX Cut...
+   Consensus: everything computed is public
+   All: Keys are private information
+   Poker: hands are private information
+ })
+
+(gslide () @h1{What features in the DApp DSL then?}
  @L{Functional Programming.}
  @L{Asynchronous Communication.}
  @L{Cryptographic Primitives.}
@@ -173,7 +179,7 @@ blockchains and will address interoperability, scalability and privacy.
   @L{Address each issue at proper level of abstraction.}
   ~
   @L{Zoom in and out, at runtime.}
-  @L{Full Abstraction: no semantic leak.}
+  @L{Full Abstraction: no semantic leak.} ;; XXXXXX
   ~
   @L{Average user get automatic theorem proofs with Z3.}
   @L{System extenders prove extensions correct in Coq.})
@@ -205,14 +211,14 @@ blockchains and will address interoperability, scalability and privacy.
   @L{Good sign: functoriality implies full abstraction!})
 
 (gslide () @h1{Less Formal Methods}
-  @L{Lightweight methods: Quickly check simple properties.}
+  @L{Lightweight Formal methods: Quickly check simple properties.}
   @L{Starve attackers of low-hanging fruits.}
   ~
-  @L{Keep track of axioms at every level of abstraction.}
-  @L{Can't do without axioms. Make them explicit, review them.}
+  @L{Can't do without axioms. Can make them explicit, audit them.}
+  @L{Automatically keep track of axioms at every level of abstraction.}
   ~
   @L{Human Processes matter.}
-  @L{Design. Review. Discipline. Red team.}))
+  @L{Design. Review. Discipline. Check lists. Red team.}))
 
 (slide-group "Blockchain-Agnostic Model: Consensus-as-Court"
 (gslide () @h1{Consensus-as-Court}
@@ -254,14 +260,13 @@ blockchains and will address interoperability, scalability and privacy.
 
 (gslide () @h1{DSL: Abstract over Backend}
   @L{This blockchain vs That blockchain}
-  ~
   @L{Non-Interactive enforcement vs Interactive verification}
-  ~
   @L{Public computation vs Private computation}
-  ~
   @L{Slow and trustless vs Fast with semi-trusted middleman}
   ~
-  @p{No One-size-fits-all backend. Yes One-size-fits-all DApp.})
+  @p{Different sets of users have different needs for backends. @(br)
+     Different blockchains offer different capabilities to backends.}
+  @comment{No One-size-fits-all backend. Yes One-size-fits-all DApp.})
 
 (gslide () @h1{Blockchain-Agnostic Model}
   @L{Portability}
