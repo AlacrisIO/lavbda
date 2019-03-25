@@ -52,9 +52,9 @@
 
 (slide ()
   @table[(tr(td width: "33%")(td (div fgcolor: *red*
-  @b{@(d 3)@(d)𝕃@(d)anguage @(br)
-     @(d 3)@(d)𝔸@(d)bstraction for @(br)
-     ⟦𝕍⟧@(d)erifiable @(br)
+  @b{@(d 4)𝕃@(d)anguage @(br)
+     @(d 4)𝔸@(d)bstraction for @(br)
+          ⟦𝕍⟧@(d)erifiable @(br)
      @(d 4)𝔹@(d 2)lockchain @(br)
      @(d 4)𝔻@(d 2)istributed @(br)
      @(d 4)𝔸@(d)pplications}))(td width: "33%"))]
@@ -65,7 +65,7 @@
   @p{IOHK Summit, 2019-04-11}
   @url{https://alacris.io/}) ;; lavbda.alacris.io
 
-(slide-group "Introduction: Challenge for Security DApps"
+(slide-group "Introduction: Challenges for Secure DApps"
 (gslide () @h1{Why No DApps? a Vicious Circle}
  ~
  (let-values (((x y z t) (values "No apps" "No users" "No money" "No tech")))
@@ -102,13 +102,13 @@
 
 (gslide () @h1{The Solution: Logic}
  @L{Dijkstra's approach: use math, prove everything correct.}
- @L{@em{You} may eschew automation of math—the bad guys won't.}
+ @L{@em{You} may eschew math automation—the bad guys won't.}
  ~
- @L{You can't retrofit math in existing code}
- @L{You must build around math from the start}
+ @L{You can't retrofit math in existing code.}
+ @L{You must build around math from the start.}
  ~
- @L{Complexity quickly makes math intractable}
- @L{Adopt Radical Simplicity—in math terms})
+ @L{Complexity quickly makes math intractable.}
+ @L{Adopt Radical Simplicity—in math terms.})
 
 (gslide () @h1{Alacris: Our Take Home Points}
  ~
@@ -123,23 +123,33 @@
 
 (slide-group "A Domain Specific Language (DSL) for DApps"
 (gslide () @h1{Why not just a Library?}
- @L{A Library: leaks complexity, makes verification harder}
+ @L{A Library: can @em{do} everything, but not @em{prevent} much.}
+ @L{Manually respect its unenforced global invariants… or else.}
+ @L{Leaks complexity, makes verification harder.}
  ~
- @L{A DSL can enforce restrictions, automate verification})
+ @L{A DSL: can express both positive and negative.}
+ @L{Global invariants automatically enforced.}
+ @L{Seals complexity. Makes verification easier.})
+
+(gslide () @h1{Why not just a new General Purpose Language?}
+ @L{General Purpose Language: Library-generator.}
+ @L{Leaks complexity exponentially until untractable.}
+ @L{Problem: mushed many levels of abstraction into one.}
+ ~
+ @L{Proper DSLs: keep small problem spaces.}
+ @L{Seal complexity at each level of abstraction.}
+ @L{General-Purpose Logic Meta-Language: factor in multiple layers.})
 
 (gslide () @h1{Why not just a Contract Language?}
- @L{A DApp is much more than a smart contract.}
- @L{Contract VM optimized for cost-conscious execution}
- @L{… computation cost > 10⁶x than for cloud computing.}
+ @L{A DApp is much more than a smart contract:}
+ @L{Also code running on clients, servers, etc.}
+ @L{Any bug and poof money gone. Any discrepancy is a bug.}
  ~
- @L{From a single DSL specification, we extract all code running on clients and servers as well as smart contracts using End-Point Projection.})
+ @L{DSL: a single spec for the entire DApp.}
+ @L{End-Point Projection: Extract all code for each and every component.}
+ @L{Do it correctly. Do it consistently across components.})
 
-(gslide () @h1{Why not just a Contract Language?}
- @L{A DApp is much more than a smart contract.}
- ~
- @L{From a single DSL specification, we extract all code running on clients and servers as well as smart contracts using End-Point Projection.})
-
-(gslide () @h1{Why not same VM a for Contracts?}
+(gslide () @h1{Why not a least share VM with Contracts?}
  @L{Contract VM is for deterministic consensual computations}
  @L{optimized for cost-conscious execution}
  @L{… computation cost > 10⁶x than for cloud computing.}
@@ -148,20 +158,23 @@
  @L{Optimized for Auditability of Game-Theoretic Correctness}
  @L{… most computations are on private cloud computers})
 
-(gslide () @h1{Why not just a General Purpose Language?}
- @L{Complexity Leaks everywhere exponentially until untractable}
- @L{Problem: more than one level of abstraction, mushed into one}
- ~
- @L{Proper DSLs seal complexity at each level of abstraction.}
- @L{General-Purpose Logic Meta-Language: factor in multiple layers}))
+(gslide () @h1{What is in the DSL then?}
+ @L{Functional Programming.}
+ @L{Asynchronous Communication.}
+ @L{Cryptographic Primitives.}
+ @L{Modal Logic: Epistemic + Temporal.}
+ @L{Linear Logic: Resource Management.}
+ @L{Game Theory: Economic Equilibrium.}
+ @L{Refinement Logic: Work at many abstraction levels.}
+ @L{Extension: Finitary Fragment for zk-SNARKs.}))
 
 (slide-group "Automatic Cascading Verification"
 (gslide () @h1{Semantic Tower}
   @L{Verify entire semantic tower, from user spec to bit bashing.}
-  @L{Each problem at the proper level}
+  @L{Address each issue at proper level of abstraction.}
   ~
-  @L{Zoom in and out}
-  @L{Full Abstraction}
+  @L{Zoom in and out, at runtime.}
+  @L{Full Abstraction: no semantic leak.}
   ~
   @L{Average user get automatic theorem proofs with Z3.}
   @L{System extenders prove extensions correct in Coq.})
@@ -176,12 +189,12 @@
 @L{Game-Theoretic Safety: no loss to bad actors.})
 
 (gslide () @h1{Verification techniques}
-  @L{Type theory}
-  @L{theorem proving}
-  @L{model checking}
-  @L{strand spaces}
-  @L{dynamical system simulation}
-  @L{composable implementation layers})
+  @L{Type Theory: manual with Coq for system extenders.}
+  @L{Theorem Proving: automated with Z3 for users.}
+  @L{Model Checking: domain-specific models.}
+  @L{Strand Spaces: model attacker capabilities.}
+  @L{Dynamical System Simulation: test attack scenarios.}
+  @L{Composable Implementation Layers: keep complexity in check.})
 
 (gslide () @h1{Composable implementation layers}
   @L{Categories: Computations as categories.}
@@ -189,14 +202,19 @@
   @L{Implementations as partial functors (profunctors).}
   @L{Game-Theoretic Safety & Liveness as composable properties.}
   @L{Code Instrumentations as natural transformations.}
-  @L{Full Abstraction.}))
+  @L{Full Abstraction.})
+
+(gslide () @h1{Less Formal Methods}
+  @L{Lightweight methods: Quickly check simple properties.}
+  @L{Starve attackers of low-hanging fruits.}
+  ~
+  @L{Keep track of axioms at every level of abstraction.}
+  @L{Can't do without axioms. Make them explicit, review them.}
+  ~
+  @L{Human Processes matter.}
+  @L{Design. Review. Discipline. Red team.}))
 
 (slide-group "Blockchain-Agnostic Model: Consensus-as-Court"
-(gslide () @h1{Blockchain-Agnostic Model}
-  @L{Portability, Interoperability}
-  ~
-  @L{Mathematical essence of the Blockchain})
-
 (gslide () @h1{Consensus-as-Court}
   @L{Analogy: common abstraction, different parameters}
   ~
@@ -243,7 +261,16 @@
   ~
   @L{Slow and trustless vs Fast with semi-trusted middleman}
   ~
-  @p{No One-size-fits-all backend. Yes One-size-fits-all DApp.}))
+  @p{No One-size-fits-all backend. Yes One-size-fits-all DApp.})
+
+(gslide () @h1{Blockchain-Agnostic Model}
+  @L{Portability}
+  @L{Interoperability}
+  @L{Scalability}
+  @L{Usability}
+  @L{@b{Security}}
+  ~
+  @L{Mathematical essence of the Blockchain}))
 
 (slide-group "Conclusion"
 (gslide () @h1{The Take Home Points (redux)}
@@ -257,17 +284,20 @@
  @L{Blockchain-Agnostic Model: Consensus-as-Court}
  @L{brings portability, interoperability, scalability.})
 
-#|
 (gslide () @h1{The Meta-Story}
+ @L{Go to the mathematical essence of things.}
+ @L{Strip all incidental complexity.}
+ @L{Identify what the domain is and isn't.}
  ~
+ @L{Itself the essence of category theory.}
+ @L{Embrace multiple levels of abstraction.}
+ @L{Reconcile Semantics and Reflection.}
  @comment{
-   When you go to the essence, make it explicit, and strip everything else...
-   You've got the approach of Category Theory,
-   which is what is good about Functional Programming
+   In the words of Dick Gabriel:
+   The programming language paradigm vs the systems paradigm.
  }
  ;; ~ @p[class: 'fragment]{Any question?}
  )
-|#
 
 (gslide () @h1{Contact}
  ~

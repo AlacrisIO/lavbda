@@ -4,8 +4,8 @@ all: lavbda
 
 .PHONY: all lavbda wc mrproper clean
 
-lavbda: lavbda.html
-lavbda.html: lavbda.rkt reveal.rkt
+lavbda: index.html
+index.html: lavbda.rkt reveal.rkt
 	racket $< > $@.tmp && mv $@.tmp $@ || rm $@.tmp
 
 clean:
