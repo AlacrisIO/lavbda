@@ -303,7 +303,7 @@
  ~
  @L{I NEED MORE INFO!   Medium @url{https://medium.com/alacris}}
  ~
- @L{TAKE MY MONEY!   Our website @url{https://alacris.io/}}
+ @L{I WANT TO FOLLOW ALONG!   Our website @url{https://alacris.io/}}
  ~
  @L{I WANT TO HELP!   Telegram @url{https://t.me/alacrisio}}
  ~
