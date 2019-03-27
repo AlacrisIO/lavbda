@@ -1,9 +1,10 @@
 Language Abstraction for [V]erifiable Blockchain Distributed Applications
 =========================================================================
 
-This talk is to be presented at IOHK Summit 2019.
+This LA[V]BDA talk is to be presented
+at IOHK Summit on April 18th 2019 in Miami.
 
 Viewing the presentation
 ------------------------
 
-Open the file [index.html](https://htmlpreview.github.io/?https://github.com/AlacrisIO/lavbda/blob/master/index.html)
+Open the precompiled file [index.html](https://alacrisio.github.io/lavbda/)
