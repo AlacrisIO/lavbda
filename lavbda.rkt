@@ -62,7 +62,7 @@ blockchains and will address interoperability, scalability and privacy.
   @C{fare@"@"alacris.io}
   ~
   @p{IOHK Summit, 2019-04-11}
-  @url{https://alacris.io/}) ;; lavbda.alacris.io
+  @url{https://alacrisio.github.io/lavbda/}) ;; lavbda.alacris.io
 
 (slide-group "Introduction: Challenges for Secure DApps"
 (gslide () @h1{Why No DApps? a Vicious Circle}
