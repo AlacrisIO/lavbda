@@ -47,21 +47,23 @@ blockchains and will address interoperability, scalability and privacy.
 (define (tR (x '())) (td style: "text-align: right; border: none;" x))
 
 
-(define (d (repetitions 1)) (make-string repetitions #\u202F)) ; U+202F NARROW NO-BREAK SPACE > <
+(define (~ (repetitions 1)) (make-string repetitions #\u202F)) ; U+202F NARROW NO-BREAK SPACE > <
+(define (~~) (~ 10))
+(define (L~ . x) (apply L (~~) x))
 
 (slide ()
   @table[(tr(td width: "33%")(td (div fgcolor: *red*
-  @b{@(d 4)𝕃@(d)anguage @(br)
-     @(d 4)𝔸@(d)bstraction for @(br)
-          ⟦𝕍⟧@(d)erifiable @(br)
-     @(d 4)𝔹@(d 2)lockchain @(br)
-     @(d 4)𝔻@(d 2)ecentralized @(br)
-     @(d 4)𝔸@(d)pplications}))(td width: "33%"))]
+  @b{@(~ 4)𝕃@(~)anguage @(br)
+     @(~ 4)𝔸@(~)bstraction for @(br)
+          ⟦𝕍⟧@(~)erifiable @(br)
+     @(~ 4)𝔹@(~ 2)lockchain @(br)
+     @(~ 4)𝔻@(~ 2)ecentralized @(br)
+     @(~ 4)𝔸@(~)pplications}))(td width: "33%"))]
   ~
   @p{François-René Rideau, @em{Alacris}}
   @C{fare@"@"alacris.io}
   ~
-  @p{IOHK Summit, 2019-04-11}
+  @p{Alacris Tech Talk 2019-04-11 / IOHK Summit, 2019-04-18}
   @url{https://alacrisio.github.io/lavbda/}) ;; lavbda.alacris.io
 
 (slide-group "Introduction: Challenges for Secure DApps"
@@ -89,73 +91,73 @@ blockchains and will address interoperability, scalability and privacy.
 
 (gslide () @h1{Why is Blockchain Security so Hard?}
  @L{Transactions: high-stake, irreversible.}
- @p{The "bug budget" is @em{zero}.}
+ @L~{The "bug budget" is @em{zero}.}
  @comment{Aerospace or biomedical industries}
  ~
  @L{Code is fragile.}
- @p{Usual languages, tools & methodologies @em{don't even try}.}
+ @L~{Usual languages, tools & methodologies @em{don't even try}.}
  @comment{Parity Wallet: 400 lines, one bug, 280 M$ disappeared!}
  ~
  @L{The Internet is hostile.}
- @p{Each dollar controlled by a DApp is @em{a bounty to the bad guys}.})
+ @L~{Each dollar controlled by a DApp is @em{a bounty to the bad guys}.})
 
 (gslide () @h1{The Solution: Logic}
- @L{Dijkstra's approach: use math, prove everything correct.}
- @L{@em{You} may eschew math automation—the bad guys won't.}
+ @L{Dijkstra's approach: prove all code correct with math.}
+ @L~{@em{You} may eschew math automation—the bad guys won't.}
  ~
  @L{You can't retrofit math in existing code.}
- @L{You must build around math from the start.}
+ @L~{You must build around math from the start.}
  ~
  @L{Complexity quickly makes math intractable.}
- @L{Adopt Radical Simplicity—in math terms.})
+ @L~{Adopt Radical Simplicity—in math terms.})
 
 (gslide () @h1{Alacris: Our Take Home Points}
  ~
  @L{Building secure DApps is extremely hard,}
- @L{a DSL makes it tractable.}
+ @L~{a Domain Specific Language (DSL) makes it tractable.}
  ~
  @L{Automatic Cascading Verification of correctness,}
- @L{from DSL down to bit-bashing, composing full abstractions.}
+ @L~{from DSL down to bit-bashing, composing full abstractions.}
  ~
  @L{Blockchain-Agnostic Model: Consensus-as-Court}
- @L{Portab-, Interoperab-, Scalab- ility—through @em{Logic}.}))
+ @L~{Port-, Interoper-, Scal- ability—through @em{Logic}.}))
 
 (slide-group "A Domain Specific Language (DSL) for DApps"
 (gslide () @h1{Why not just a Library?}
  @L{A Library: can @em{do} everything, but not @em{prevent} much.}
- @L{Manually respect its unenforced global invariants… or else.}
- @L{Leaks complexity, makes verification harder.}
+ @L~{Manually respect its unenforced global invariants… or else.}
+ @L~{Leaks complexity, makes verification harder.}
  ~
  @L{A DSL: can express both positive and negative.} ;; XXXX link to full abstraction
- @L{Global invariants automatically enforced.}
- @L{Seals complexity. Makes verification easier.})
+ @L~{Global invariants automatically enforced.}
+ @L~{Seals complexity, makes verification easier.})
 
 (gslide () @h1{Why not just a new General Purpose Language?}
  @L{General Purpose Language: Library-generator.}
- @L{Leaks complexity exponentially until untractable.}
- @L{Problem: mushed many levels of abstraction into one.}
+ @L~{Mushes all abstraction levels into one.}
+ @L~{Leaks complexity exponentially until untractable.}
  ~
  @L{Proper DSLs: keep small problem spaces.}
- @L{Seal complexity at each level of abstraction.}
- @L{General-Purpose Logic Meta-Language: factor in multiple layers.})
+ @L~{Seal complexity at each level of abstraction.}
+ @L~{General-Purpose Logic Meta-Language: factor in multiple layers.})
 
 (gslide () @h1{Why not just a Contract Language?}
  @L{A DApp is much more than a smart contract:}
- @L{Also code running on clients, servers, etc.}
- @L{Any bug and poof money gone. Any discrepancy is a bug.}
+ @L~{Also code running on clients, servers, etc.}
+ @L~{Any bug and poof money gone. Any discrepancy is a bug.}
  ~
  @L{DSL: a single spec for the entire DApp.}
- @L{End-Point Projection: Extract all code for each and every component.}
- @L{Do it correctly. Do it consistently across components.})
+ @L~{End-Point Projection: extract code for all components.}
+ @L~{Do it correctly—consistently across components.})
 
 (gslide () @h1{Why not a least share VM with Contracts?}
  @L{Contract VM is for deterministic consensual computations.}
- @L{Computations cost > 10⁶ more than for cloud computing.} ;; over a million times
- @L{Optimize programs for cost-conscious execution.}
+ @L~{Computations cost > 10⁶ more than on cloud.} ;; over a million times
+ @L~{Optimize programs for cost.}
  ~
  @L{DApp VM is for asynchronous multiparty computations.}
- @L{Most computations are on private cloud computers.}
- @L{Optimize programs for Auditability of Correctness.}
+ @L~{Most computations on private cloud.}
+ @L~{Optimize programs for auditability.}
 
  @comment{XXXX Cut...
    Consensus: everything computed is public
@@ -171,101 +173,107 @@ blockchains and will address interoperability, scalability and privacy.
  @L{Linear Logic: Resource Management.}
  @L{Game Theory: Economic Equilibrium.}
  @L{Refinement Logic: Work at many abstraction levels.}
- @L{Extension: Finitary Fragment for zk-SNARKs.}))
+ @L{Finitary Logic: zk-proofs (optional)}))
 
 (slide-group "Automatic Cascading Verification"
 (gslide () @h1{Semantic Tower}
   @L{Verify entire semantic tower, from user spec to bit bashing.}
+  @L~{Full Abstraction: no semantic leak.} ;; negative constraints
+  ~
   @L{Address each issue at proper level of abstraction.}
+  @L~{Zoom in and out—at runtime.}
   ~
-  @L{Zoom in and out, at runtime.}
-  @L{Full Abstraction: no semantic leak.} ;; XXXXXX
-  ~
-  @L{Average user get automatic theorem proofs with Z3.}
-  @L{System extenders prove extensions correct in Coq.})
+  @L{Regular developers @em{automatically} get proofs with Z3.}
+  @L{System extenders @em{manually} prove correctness with Coq.})
 
 (gslide () @h1{Correctness Properties to Automatically Verify}
-@L{User-defined protocol invariants.}
-~
-@L{Linear Resources, Access Control, Time Bounds.}
-~
-@L{Game-Theoretic Liveness: progress if all actors honest.}
-~
-@L{Game-Theoretic Safety: no loss to bad actors.})
+  @L{User-defined protocol invariants.}
+  ~
+  @L{Linear Resources, Access Control, Time Bounds.}
+  ~
+  @L{Game-Theoretic Liveness: progress if all actors honest.}
+  ~
+  @L{Game-Theoretic Safety: no loss to bad actors.})
 
 (gslide () @h1{Verification techniques}
-  @L{Type Theory: manual with Coq for system extenders.}
-  @L{Theorem Proving: automated with Z3 for users.}
-  @L{Model Checking: domain-specific models.}
-  @L{Strand Spaces: model attacker capabilities.}
-  @L{Dynamical System Simulation: test attack scenarios.}
-  @L{Composable Implementation Layers: keep complexity in check.})
+  @L{@em{Type Theory}: grow system with Coq.}
+  @L{@em{Theorem Proving}: user automation with Z3.}
+  @L{@em{Model Checking}: domain-specific models.}
+  @L{@em{Strand Spaces}: model attacker capabilities.}
+  @L{@em{Dynamical System Simulation}: test attack scenarios.}
+  @L{@em{Composable Implementation Layers}: keep complexity in check.})
 
 (gslide () @h1{Composable implementation layers}
   @L{Category Theory: Computations as categories.}
-  @L{States as nodes ("objects"), transitions as arrows ("morphisms").}
+  @L~{States as nodes ("objects"), transitions as arrows ("morphisms").}
+  ~
   @L{Implementations as partial functors (profunctors).}
-  @L{Game-Theoretic Safety & Liveness as composable properties.}
-  @L{Code Instrumentations as natural transformations.}
+  @L~{Game-Theoretic Safety & Liveness as composable properties.}
+  @L~{Code Instrumentations as natural transformations.}
   ~
   @L{Good sign: functoriality implies full abstraction!})
 
 (gslide () @h1{Less Formal Methods}
   @L{Lightweight Formal methods: Quickly check simple properties.}
-  @L{Starve attackers of low-hanging fruits.}
+  @L~{Starve attackers of low-hanging fruits.}
   ~
   @L{Can't do without axioms. Can make them explicit, audit them.}
-  @L{Automatically keep track of axioms at every level of abstraction.}
+  @L~{Automatically track axioms at every abstraction level.}
   ~
   @L{Human Processes matter.}
-  @L{Design. Review. Discipline. Check lists. Red team.}))
+  @L~{Design. Review. Discipline. Check lists. Red team.}))
 
 (slide-group "Blockchain-Agnostic Model: Consensus-as-Court"
 (gslide () @h1{Consensus-as-Court}
-  @L{Analogy: common abstraction, different parameters}
+  @L{Analogy: common abstraction, different parameters.}
+  @L~{Conflict avoidance & resolution. Machines @em{vs} humans.}
   ~
-  @L{Conflict avoidance and resolution system.}
-  @L{Avoidance: Fast. Good guy pays all the time.}
-  @L{Resolution: Slow. Bad guy pays in unhappy case.}
+  @L{Avoidance: Good guy pays, all the time. Reliably Slow.}
+  @L{Resolution: Bad guy pays, in unhappy case only. Faster/Slower.}
   ~
-  @L{Machines: verification games with fast cheap rigid logic.}
-  @L{Humans: legal arguments with slow scarce flexible rhetoric.})
+  @L{Machines: verification games with logic—fast cheap rigid.}
+  @L{Humans: legal arguments with rhetoric—slow expensive flexible.})
 
 (gslide () @h1{Logic for Smart Contracts}
-  @L{Arbitrary logical formula for smart contract clause.}
-  @L{NB: Requires a logic model for blockchains or side-chains.}
+  @L{Smart contract clause is @em{arbitrary logical formula}.}
+  @L~{NB: Requires logic model of the blockchain or side-chain.}
   ~
   @L{@em{Game Semantics}: translate formulas to verification games.}
   @L{@em{Fundamental Theorem}: Good guy has winning strategy.}
   ~
-  @L{Bad guy loses, then pays damages and court fees.}
-  @L{With any challengeable claim, deposit collateral as bond.})
+  @L{Bad guy loses, then pays damages and court fees...}
+  @L~{out of @em{bond}—with any claim, deposit collateral.})
 
 (gslide () @h1{Mutual Knowledge}
-  @L{Winning Strategy: Not just "there exists" but "I know"}
+  @L{Winning Strategy: "there exists" not enough—"I know" needed.}
+  @L~{All evidence must be @em{Mutual Knowledge} (MK).}
   ~
-  @L{All evidence must be Mutual Knowledge (MK).}
+  @L{Consensus. State channels. Plasma. Side-chains?}
+  @L{MK easier to achieve than @em{Common Knowledge}.}
   ~
-  @L{Scale with general purpose MK validator network.})
+  @L{Scale with general purpose MK validator network.}
+  @L~{Mutual Knowledge Base (MKB), })
 
 (gslide () @h1{Extension: Zero-Knowledge Proofs}
-  @L{Interactive but private validation.}
-  @L{Anyone can see who's right, about what stays private.}
+  @L{@em{Private} interactive validation.}
+  @L~{Anyone can see who's right, no one knows about what.}
   ~
-  @L{Non-interactive a priori validation.}
-  @L{Trade-off: good guy pays all the time, a lot.}
+  @L{@em{Non-interactive} a priori validation.}
+  @L~{Trade-off: good guy pays all the time, a lot.}
   ~
-  @L{Interoperability: commitment with different hash functions}
-  @L{Gambling: Homomorphic encryption of card game hands})
+  @L{@em{Interoperability}: commitment with different hash functions}
+  ~
+  @L{@em{Gambling}: Homomorphic encryption of card game hands})
 
 (gslide () @h1{DSL: Abstract over Backend}
-  @L{This blockchain vs That blockchain}
-  @L{Non-Interactive enforcement vs Interactive verification}
-  @L{Public computation vs Private computation}
-  @L{Slow and trustless vs Fast with semi-trusted middleman}
+  (table class: "noborder" id: "noborder"
+    (tr @tR{This blockchain} (tC @em{vs}) @tL{That blockchain})
+    (tr @tR{Non-interactive enforcement} (tC @em{vs}) @tL{Interactive verification})
+    (tr @tR{Public computation} (tC @em{vs}) @tL{Private computation})
+    (tr @tR{Slow and trustless} (tC @em{vs}) @tL{Fast semi-trusted middleman}))
   ~
-  @p{Different sets of users have different needs for backends. @(br)
-     Different blockchains offer different capabilities to backends.}
+  @L~{Different sets of users have different needs from backends.}
+  @L~{Different blockchains offer different capabilities to backends.}
   @comment{No One-size-fits-all backend. Yes One-size-fits-all DApp.})
 
 (gslide () @h1{Blockchain-Agnostic Model}
@@ -275,28 +283,29 @@ blockchains and will address interoperability, scalability and privacy.
   @L{Usability}
   @L{@b{Security}}
   ~
-  @L{Mathematical essence of the Blockchain}))
+  @L~{Mathematical essence of the Blockchain}))
 
 (slide-group "Conclusion"
-(gslide () @h1{The Take Home Points (redux)}
+(gslide () @h1{Alacris: Our Take Home Points (redux)}
  ~
  @L{Building secure DApps is extremely hard,}
- @L{a DSL makes it tractable.}
+ @L~{a Domain Specific Language (DSL) makes it tractable.}
  ~
  @L{Automatic Cascading Verification of correctness,}
- @L{from DSL down to bit-bashing, composing full abstractions.}
+ @L~{from DSL down to bit-bashing, composing full abstractions.}
  ~
  @L{Blockchain-Agnostic Model: Consensus-as-Court}
- @L{brings portability, interoperability, scalability.})
+ @L~{Port-, Interoper-, Scal- ability—through @em{Logic}.})
 
 (gslide () @h1{The Meta-Story}
  @L{Go to the mathematical essence of things.}
- @L{Itself the essence of category theory.}
- @L{Identify what the domain is and isn't.}
+ @L~{Itself the essence of category theory.}
  ~
  @L{Strip all incidental complexity.}
+ @L~{Identify what the domain is and isn't.}
+ ~
  @L{Embrace multiple levels of abstraction.}
- @L{Reconcile Semantics and Reflection.}
+ @L~{Reconcile Semantics and Reflection.}
  @comment{
    In the words of Dick Gabriel:
    The programming language paradigm vs the systems paradigm.
