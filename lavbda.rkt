@@ -77,7 +77,7 @@ blockchains and will address interoperability, scalability and privacy.
     (tr (tR "⬉") (tC)   (tL "⬋"))
     (tr (tC)     (tC z) (tC))))
  ~
- @fragment{Typical bootstrapping issue!})
+ @fragment{@(~)@(br)@(~)@(br) Typical bootstrapping issue!})
 
 (gslide () @h1{What Missing Tech?}
  ~
@@ -109,7 +109,7 @@ blockchains and will address interoperability, scalability and privacy.
  @L~{You must build around math from the start.}
  ~
  @L{Complexity quickly makes math intractable.}
- @L~{Adopt Radical Simplicity—in math terms.})
+ @L~{Adopt @em{Radical Simplicity}—in math terms.})
 
 (gslide () @h1{Alacris: Our Take Home Points}
  ~
@@ -134,8 +134,8 @@ blockchains and will address interoperability, scalability and privacy.
 
 (gslide () @h1{Why not just a new General Purpose Language?}
  @L{General Purpose Language: Library-generator.}
- @L~{Mushes all abstraction levels into one.}
  @L~{Leaks complexity exponentially until untractable.}
+ @L~{Mushes all abstraction levels into one.}
  ~
  @L{Proper DSLs: keep small problem spaces.}
  @L~{Seal complexity at each level of abstraction.}
@@ -173,7 +173,7 @@ blockchains and will address interoperability, scalability and privacy.
  @L{Linear Logic: Resource Management.}
  @L{Game Theory: Economic Equilibrium.}
  @L{Refinement Logic: Work at many abstraction levels.}
- @L{Finitary Logic: zk-proofs (optional)}))
+ @L{Finitary Logic: zk-proofs (optional).}))
 
 (slide-group "Automatic Cascading Verification"
 (gslide () @h1{Semantic Tower}
@@ -218,7 +218,7 @@ blockchains and will address interoperability, scalability and privacy.
   @L~{Starve attackers of low-hanging fruits.}
   ~
   @L{Can't do without axioms. Can make them explicit, audit them.}
-  @L~{Automatically track axioms at every abstraction level.}
+  @L~{Automatically track axioms from every abstraction level.}
   ~
   @L{Human Processes matter.}
   @L~{Design. Review. Discipline. Check lists. Red team.}))
@@ -248,11 +248,11 @@ blockchains and will address interoperability, scalability and privacy.
   @L{Winning Strategy: "there exists" not enough—"I know" needed.}
   @L~{All evidence must be @em{Mutual Knowledge} (MK).}
   ~
-  @L{Consensus. State channels. Plasma. Side-chains?}
-  @L{MK easier to achieve than @em{Common Knowledge}.}
+  @L{Consensus. State channels. Plasma. Side-chains?} ;; consensus a.k.a. @em{Common Knowledge}.
+  @L~{Mutual Knowledge Base (MKB) a.k.a. data availability engine.}
   ~
   @L{Scale with general purpose MK validator network.}
-  @L~{Mutual Knowledge Base (MKB), })
+  @L~{MK easier to achieve @em{and shard} than consensus.})
 
 (gslide () @h1{Extension: Zero-Knowledge Proofs}
   @L{@em{Private} interactive validation.}
@@ -268,7 +268,7 @@ blockchains and will address interoperability, scalability and privacy.
 (gslide () @h1{DSL: Abstract over Backend}
   (table class: "noborder" id: "noborder"
     (tr @tR{This blockchain} (tC @em{vs}) @tL{That blockchain})
-    (tr @tR{Non-interactive enforcement} (tC @em{vs}) @tL{Interactive verification})
+    (tr @tR{Interactive verification} (tC @em{vs}) @tL{Non-interactive enforcement})
     (tr @tR{Public computation} (tC @em{vs}) @tL{Private computation})
     (tr @tR{Slow and trustless} (tC @em{vs}) @tL{Fast semi-trusted middleman}))
   ~
