@@ -60,14 +60,14 @@ blockchains and will address interoperability, scalability and privacy.
      @(~ 4)𝔻@(~ 2)ecentralized @(br)
      @(~ 4)𝔸@(~)pplications}))(td width: "33%"))]
   ~
-  @p{François-René Rideau, @em{Alacris}}
+  @p{François-René Rideau, @(~)@em{Alacris}}
   @C{fare@"@"alacris.io}
   ~
-  @p{Alacris Tech Talk 2019-04-11 / IOHK Summit, 2019-04-18}
+  @p{Alacris Tech Talk 2019-04-11} @comment{IOHK Summit, 2019-04-18}
   @url{https://alacrisio.github.io/lavbda/}) ;; lavbda.alacris.io
 
 (slide-group "Introduction: Challenges for Secure DApps"
-(gslide () @h1{Why No DApps? a Vicious Circle}
+(gslide () @h1{Why No DApps? @(~ 2)a Vicious Circle}
  ~
  (let-values (((x y z t) (values "No apps" "No users" "No money" "No tech")))
    (table class: "noborder" id: "noborder"
@@ -85,79 +85,86 @@ blockchains and will address interoperability, scalability and privacy.
  @p{Interoperability}
  @p{Portability}
  @p{Usability}
- ~
  @fragment{@h6{Security}}
  @comment{})
 
 (gslide () @h1{Why is Blockchain Security so Hard?}
- @L{Transactions: high-stake, irreversible.}
- @L~{The "bug budget" is @em{zero}.}
+ @L{1. Transactions: high-stake, irreversible.}
+ @fragment[#:index 1]{@L~{The "bug budget" is @em{zero}.}}
  @comment{Aerospace or biomedical industries}
  ~
- @L{Code is fragile.}
- @L~{Usual languages, tools & methodologies @em{don't even try}.}
+ @L{2. Code is fragile.}
+ @fragment[#:index 2]{@L~{Usual languages, tools & methodologies @em{don't even try}.}}
  @comment{Parity Wallet: 400 lines, one bug, 280 M$ disappeared!}
  ~
- @L{The Internet is hostile.}
- @L~{Each dollar controlled by a DApp is @em{a bounty to the bad guys}.})
+ @L{3. The Internet is hostile.}
+ @fragment[#:index 3]{@L~{Each dollar controlled by a DApp is @em{a bounty to the bad guys}.}})
 
 (gslide () @h1{The Solution: Logic}
- @L{Dijkstra's approach: prove all code correct with math.}
- @L~{@em{You} may eschew math automation—the bad guys won't.}
+ @L{@em{You} may eschew math automation—the bad guys won't.}
+ @fragment[#:index 1]{@L~{Dijkstra's approach: @em{prove all code correct} with math.}}
  ~
  @L{You can't retrofit math in existing code.}
- @L~{You must build around math from the start.}
+ @fragment[#:index 2]{@L~{You must build around @em{math from the start}.}}
  ~
  @L{Complexity quickly makes math intractable.}
- @L~{Adopt @em{Radical Simplicity}—in math terms.})
+ @fragment[#:index 3]{@L~{Adopt @em{Radical Simplicity}—in math terms.}})
 
 (gslide () @h1{Alacris: Our Take Home Points}
  ~
- @L{Building secure DApps is extremely hard,}
+ @L{1. Building secure DApps is extremely hard,}
  @L~{a Domain Specific Language (DSL) makes it tractable.}
  ~
- @L{Automatic Cascading Verification of correctness,}
+ @L{2. Automatic Cascading Verification of correctness,}
  @L~{from DSL down to bit-bashing, composing full abstractions.}
  ~
- @L{Blockchain-Agnostic Model: Consensus-as-Court}
- @L~{Port-, Interoper-, Scal- ability—through @em{Logic}.}))
+ @L{3. Blockchain-Agnostic Model: Consensus as Court}
+ @L~{Scal-, Interoper-, Port-, Us- ability—through @em{Logic}.}))
 
 (slide-group "A Domain Specific Language (DSL) for DApps"
 (gslide () @h1{Why not just a Library?}
  @L{A Library: can @em{do} everything, but not @em{prevent} much.}
+ @fragment[#:index 1]{
  @L~{Manually respect its unenforced global invariants… or else.}
- @L~{Leaks complexity, makes verification harder.}
+ @L~{Leaks complexity, makes verification harder.}}
  ~
  @L{A DSL: can express both positive and negative.} ;; XXXX link to full abstraction
+ @fragment[#:index 2]{
  @L~{Global invariants automatically enforced.}
- @L~{Seals complexity, makes verification easier.})
+ @L~{Seals complexity, makes verification easier.}})
 
 (gslide () @h1{Why not just a new General Purpose Language?}
  @L{General Purpose Language: Library-generator.}
+ @fragment[#:index 1]{
  @L~{Leaks complexity exponentially until untractable.}
- @L~{Mushes all abstraction levels into one.}
+ @L~{Mushes all abstraction levels into one.}}
  ~
  @L{Proper DSLs: keep small problem spaces.}
+ @fragment[#:index 2]{
  @L~{Seal complexity at each level of abstraction.}
- @L~{General-Purpose Logic Meta-Language: factor in multiple layers.})
+ @L~{General-Purpose Logic Meta-Language: factor in multiple layers.}})
 
 (gslide () @h1{Why not just a Contract Language?}
  @L{A DApp is much more than a smart contract:}
+ @fragment[#:index 1]{
  @L~{Also code running on clients, servers, etc.}
- @L~{Any bug and poof money gone. Any discrepancy is a bug.}
+ @L~{Any bug and poof money gone. Any discrepancy is a bug.}}
  ~
  @L{DSL: a single spec for the entire DApp.}
+ @fragment[#:index 2]{
  @L~{End-Point Projection: extract code for all components.}
- @L~{Do it correctly—consistently across components.})
+ @L~{Do it correctly—consistently across components.}})
 
 (gslide () @h1{Why not a least share VM with Contracts?}
  @L{Contract VM is for deterministic consensual computations.}
- @L~{Computations cost > 10⁶ more than on cloud.} ;; over a million times
- @L~{Optimize programs for cost.}
+ @fragment[#:index 1]{
+ @L~{Computations cost > 10⁶ more than on cloud.} @comment{over a million times}
+ @L~{Optimize programs for cost.}}
  ~
  @L{DApp VM is for asynchronous multiparty computations.}
+ @fragment[#:index 2]{
  @L~{Most computations on private cloud.}
- @L~{Optimize programs for auditability.}
+ @L~{Optimize programs for auditability.}}
 
  @comment{XXXX Cut...
    Consensus: everything computed is public
@@ -178,22 +185,28 @@ blockchains and will address interoperability, scalability and privacy.
 (slide-group "Automatic Cascading Verification"
 (gslide () @h1{Semantic Tower}
   @L{Verify entire semantic tower, from user spec to bit bashing.}
-  @L~{Full Abstraction: no semantic leak.} ;; negative constraints
+  @fragment[#:index 1]{
+  @L~{Full Abstraction: no semantic leak.}} ;; negative constraints
   ~
   @L{Address each issue at proper level of abstraction.}
-  @L~{Zoom in and out—at runtime.}
+  @fragment[#:index 2]{
+  @L~{Zoom in and out—at runtime.}}
   ~
+  @fragment[#:index 3]{
   @L{Regular developers @em{automatically} get proofs with Z3.}
-  @L{System extenders @em{manually} prove correctness with Coq.})
+  @L{System extenders @em{manually} prove correctness with Coq.}})
 
 (gslide () @h1{Correctness Properties to Automatically Verify}
-  @L{User-defined protocol invariants.}
+  @fragment[#:index 1]{
+  @L{User-defined protocol invariants.}}
   ~
-  @L{Linear Resources, Access Control, Time Bounds.}
+  @fragment[#:index 2]{
+  @L{Linear Resources, Access Control, Time Bounds.}}
   ~
+  @fragment[#:index 3]{
   @L{Game-Theoretic Liveness: progress if all actors honest.}
-  ~
-  @L{Game-Theoretic Safety: no loss to bad actors.})
+  @(~)
+  @L{Game-Theoretic Safety: no loss to bad actors.}})
 
 (gslide () @h1{Verification techniques}
   @L{@em{Type Theory}: grow system with Coq.}
@@ -211,20 +224,24 @@ blockchains and will address interoperability, scalability and privacy.
   @L~{Game-Theoretic Safety & Liveness as composable properties.}
   @L~{Code Instrumentations as natural transformations.}
   ~
-  @L{Good sign: functoriality implies full abstraction!})
+  @fragment[#:index 1]{
+  @L{Good sign: functoriality implies full abstraction!}})
 
 (gslide () @h1{Less Formal Methods}
   @L{Lightweight Formal methods: Quickly check simple properties.}
-  @L~{Starve attackers of low-hanging fruits.}
+  @fragment[#:index 1]{
+  @L~{Starve attackers of low-hanging fruits.}}
   ~
   @L{Can't do without axioms. Can make them explicit, audit them.}
-  @L~{Automatically track axioms from every abstraction level.}
+  @fragment[#:index 2]{
+  @L~{Automatically track axioms from every abstraction level.}}
   ~
   @L{Human Processes matter.}
-  @L~{Design. Review. Discipline. Check lists. Red team.}))
+  @fragment[#:index 3]{
+  @L~{Design. Review. Discipline. Check lists. Red team.}}))
 
-(slide-group "Blockchain-Agnostic Model: Consensus-as-Court"
-(gslide () @h1{Consensus-as-Court}
+(slide-group "Blockchain-Agnostic Model: Consensus as Court"
+(gslide () @h1{Consensus as Court}
   @L{Analogy: common abstraction, different parameters.}
   @L~{Conflict avoidance & resolution. Machines @em{vs} humans.}
   ~
@@ -248,8 +265,8 @@ blockchains and will address interoperability, scalability and privacy.
   @L{Winning Strategy: "there exists" not enough—"I know" needed.}
   @L~{All evidence must be @em{Mutual Knowledge} (MK).}
   ~
-  @L{Consensus. State channels. Plasma. Side-chains?} ;; consensus a.k.a. @em{Common Knowledge}.
-  @L~{Mutual Knowledge Base (MKB) a.k.a. data availability engine.}
+  @L{Consensus (@em{Common Knowledge}, CK). State channels. Plasma.}
+  @L~{Side-chains? Need a data availability engine, a.k.a. MKB.}
   ~
   @L{Scale with general purpose MK validator network.}
   @L~{MK easier to achieve @em{and shard} than consensus.})
@@ -261,9 +278,9 @@ blockchains and will address interoperability, scalability and privacy.
   @L{@em{Non-interactive} a priori validation.}
   @L~{Trade-off: good guy pays all the time, a lot.}
   ~
-  @L{@em{Interoperability}: commitment with different hash functions}
+  @L{@em{Interoperability}: commitment with different hash functions.}
   ~
-  @L{@em{Gambling}: Homomorphic encryption of card game hands})
+  @L{@em{Gambling}: Homomorphic encryption of card game hands.})
 
 (gslide () @h1{DSL: Abstract over Backend}
   (table class: "noborder" id: "noborder"
@@ -272,30 +289,33 @@ blockchains and will address interoperability, scalability and privacy.
     (tr @tR{Public computation} (tC @em{vs}) @tL{Private computation})
     (tr @tR{Slow and trustless} (tC @em{vs}) @tL{Fast semi-trusted middleman}))
   ~
-  @L~{Different sets of users have different needs from backends.}
-  @L~{Different blockchains offer different capabilities to backends.}
-  @comment{No One-size-fits-all backend. Yes One-size-fits-all DApp.})
+  @fragment[#:index 1]{
+    @L~{Different sets of users have different needs from backends.}
+    @L~{Different blockchains offer different capabilities to backends.}}
+  ~
+  @fragment[#:index 2]{@(~)@(br)@em{One DApp, many backends.}})
 
 (gslide () @h1{Blockchain-Agnostic Model}
-  @L{Portability}
-  @L{Interoperability}
-  @L{Scalability}
-  @L{Usability}
-  @L{@b{Security}}
+  @p{Scalability}
+  @p{Interoperability}
+  @p{Portability}
+  @p{Usability}
+  @h6{Security}
   ~
-  @L~{Mathematical essence of the Blockchain}))
+  @fragment{@L{Mathematical essence of the Blockchain:}
+            @b{Common Knowledge about Monotonic Verifiable Data Structures}}))
 
 (slide-group "Conclusion"
 (gslide () @h1{Alacris: Our Take Home Points (redux)}
  ~
- @L{Building secure DApps is extremely hard,}
+ @L{1. Building secure DApps is extremely hard,}
  @L~{a Domain Specific Language (DSL) makes it tractable.}
  ~
- @L{Automatic Cascading Verification of correctness,}
+ @L{2. Automatic Cascading Verification of correctness,}
  @L~{from DSL down to bit-bashing, composing full abstractions.}
  ~
- @L{Blockchain-Agnostic Model: Consensus-as-Court}
- @L~{Port-, Interoper-, Scal- ability—through @em{Logic}.})
+ @L{3. Blockchain-Agnostic Model: Consensus as Court}
+ @L~{Scal-, Interoper-, Port-, Us- ability—through @em{Logic}.})
 
 (gslide () @h1{The Meta-Story}
  @L{Go to the mathematical essence of things.}
