@@ -63,7 +63,7 @@ blockchains and will address interoperability, scalability and privacy.
   @p{François-René Rideau, @(~)@em{Alacris}}
   @C{fare@"@"alacris.io}
   ~
-  @p{Alacris Tech Talk 2019-04-11} @comment{IOHK Summit, 2019-04-18}
+  @comment{Alacris Tech Talk 2019-04-11} @p{IOHK Summit, 2019-04-18}
   @url{https://alacrisio.github.io/lavbda/}) ;; lavbda.alacris.io
 
 (slide-group "Introduction: Challenges for Secure DApps"
@@ -240,47 +240,16 @@ blockchains and will address interoperability, scalability and privacy.
   @fragment[#:index 3]{
   @L~{Design. Review. Discipline. Check lists. Red team.}}))
 
-(slide-group "Blockchain-Agnostic Model: Consensus as Court"
-(gslide () @h1{Consensus as Court}
-  @L{Analogy: common abstraction, different parameters.}
-  @L~{Conflict avoidance & resolution. Machines @em{vs} humans.}
+(slide-group "Blockchain-Agnostic Model"
+(gslide () @h1{}
+  @L{Consensus as Court: fruitful analogy.}
   ~
-  @L{Avoidance: Good guy pays, all the time. Reliably Slow.}
-  @L{Resolution: Bad guy pays, in unhappy case only. Faster/Slower.}
+  @L{Specify Contract Clauses with Logic.}
+  @L{Validate before... or Verify after (Game Semantics).}
   ~
-  @L{Machines: verification games with logic—fast cheap rigid.}
-  @L{Humans: legal arguments with rhetoric—slow expensive flexible.})
-
-(gslide () @h1{Logic for Smart Contracts}
-  @L{Smart contract clause is @em{arbitrary logical formula}.}
-  @L~{NB: Requires logic model of the blockchain or side-chain.}
+  @L{Scale any DApp with Mutual Knowledge Base.}
   ~
-  @L{@em{Game Semantics}: translate formulas to verification games.}
-  @L{@em{Fundamental Theorem}: Good guy has winning strategy.}
-  ~
-  @L{Bad guy loses, then pays damages and court fees...}
-  @L~{out of @em{bond}—with any claim, deposit collateral.})
-
-(gslide () @h1{Mutual Knowledge}
-  @L{Winning Strategy: "there exists" not enough—"I know" needed.}
-  @L~{All evidence must be @em{Mutual Knowledge} (MK).}
-  ~
-  @L{Consensus (@em{Common Knowledge}, CK). State channels. Plasma.}
-  @L~{Side-chains? Need a data availability engine, a.k.a. MKB.}
-  ~
-  @L{Scale with general purpose MK validator network.}
-  @L~{MK easier to achieve @em{and shard} than consensus.})
-
-(gslide () @h1{Extension: Zero-Knowledge Proofs}
-  @L{@em{Private} interactive validation.}
-  @L~{Anyone can see who's right, no one knows about what.}
-  ~
-  @L{@em{Non-interactive} a priori validation.}
-  @L~{Trade-off: good guy pays all the time, a lot.}
-  ~
-  @L{@em{Interoperability}: commitment with different hash functions.}
-  ~
-  @L{@em{Gambling}: Homomorphic encryption of card game hands.})
+  @L{zkproofs: privacy, fast validation, interop, gambling…})
 
 (gslide () @h1{DSL: Abstract over Backend}
   (table class: "noborder" id: "noborder"
@@ -343,4 +312,50 @@ blockchains and will address interoperability, scalability and privacy.
  ~
  @L{SHOW ME THE CODE!   @url{https://github.com/AlacrisIO}}))
 
+(slide-group "Appendix A: Consensus as Court"
+(gslide () @h1{Consensus as Court}
+  @L{Analogy: common abstraction, different parameters.}
+  @L~{Conflict avoidance & resolution. Machines @em{vs} humans.}
+  ~
+  @L{Avoidance: Good guy pays, all the time. Reliably Slow.}
+  @L{Resolution: Bad guy pays, in unhappy case only. Faster/Slower.}
+  ~
+  @L{Machines: verification games with logic—fast cheap rigid.}
+  @L{Humans: legal arguments with rhetoric—slow expensive flexible.})
+
+(gslide () @h1{Logic for Smart Contracts}
+  @L{Smart contract clause is @em{arbitrary logical formula}.}
+  @L~{NB: Requires logic model of the blockchain or side-chain.}
+  ~
+  @L{@em{Game Semantics}: translate formulas to verification games.}
+  @L{@em{Fundamental Theorem}: Good guy has winning strategy.}
+  ~
+  @L{Bad guy loses, then pays damages and court fees...}
+  @L~{out of @em{bond}—with any claim, deposit collateral.})
+
+(gslide () @h1{Mutual Knowledge}
+  @L{Winning Strategy: "there exists" not enough—"I know" needed.}
+  @L~{All evidence must be @em{Mutual Knowledge} (MK).}
+  ~
+  @L{Consensus (@em{Common Knowledge}, CK). State channels. Plasma.}
+  @L~{Side-chains? Need a data availability engine, a.k.a. MKB.}
+  ~
+  @L{Scale with general purpose MK validator network.}
+  @L~{MK easier to achieve @em{and shard} than consensus.})
+
+(gslide () @h1{Extension: Zero-Knowledge Proofs}
+  @L{@em{Private} interactive validation.}
+  @L~{Anyone can see who's right, no one knows about what.}
+  ~
+  @L{@em{Non-interactive} a priori validation.}
+  @L~{Trade-off: good guy pays all the time, a lot.}
+  ~
+  @L{@em{Interoperability}: commitment with different hash functions.}
+  ~
+  @L{@em{Gambling}: Homomorphic encryption of card game hands.}))
+
 (reveal)
+
+;; Status of the project: closer to the beginning.
+;; gap between formal and informal specification.
+;; producers and consumers of security are not the same: auditability by third parties.
