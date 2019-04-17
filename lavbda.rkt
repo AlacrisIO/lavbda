@@ -52,13 +52,18 @@ blockchains and will address interoperability, scalability and privacy.
 (define (L~ . x) (apply L (~~) x))
 
 (slide ()
-  @table[(tr(td width: "33%")(td (div fgcolor: *red*
-  @b{@(~ 4)𝕃@(~)anguage @(br)
-     @(~ 4)𝔸@(~)bstraction for @(br)
-          ⟦𝕍⟧@(~)erifiable @(br)
-     @(~ 4)𝔹@(~ 2)lockchain @(br)
-     @(~ 4)𝔻@(~ 2)ecentralized @(br)
-     @(~ 4)𝔸@(~)pplications}))(td width: "33%"))]
+       @table[(tr(td width: "15%")
+                 (td width: "33%"
+                     (img src: "resources/pic/alacris_logo.png"
+                          style: "border: 0; vertical-align: top; background-color: transparent"))
+                 (td width: "15%")
+                 (td (div fgcolor: *red*
+                          @b{@(~ 4)𝕃@(~)anguage @(br)
+                             @(~ 4)𝔸@(~)bstraction for @(br)
+                             ⟦𝕍⟧@(~)erifiable @(br)
+                             @(~ 4)𝔹@(~ 2)lockchain @(br)
+                             @(~ 4)𝔻@(~ 2)ecentralized @(br)
+                             @(~ 4)𝔸@(~)pplications})))]
   ~
   @p{François-René Rideau, @(~)@em{Alacris}}
   @C{fare@"@"alacris.io}

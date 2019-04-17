@@ -169,7 +169,11 @@
        @link[rel: 'stylesheet href: @reveal-url{css/theme/black.css}]
        @link[rel: 'stylesheet href: @reveal-url{lib/css/zenburn.css}]
        @link[rel: 'stylesheet href: "resources/my.css"]}
-     @body{
+     @body[style: (string-append "background-repeat: no-repeat; "
+                                 "background-size: 15%; "
+                                 "background-origin: padding-box; "
+                                 "background-position: bottom 1% right 1%; "
+                                 "background-image: url('resources/pic/alacris_small_logo.png'); ")]{
        @div[class: 'reveal]{@div[class: 'slides]{@get-sections}}
        @script[src: @reveal-url{lib/js/head.min.js}]
        @script[src: @reveal-url{js/reveal.min.js}]
