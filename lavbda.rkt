@@ -185,7 +185,9 @@ blockchains and will address interoperability, scalability and privacy.
  @L{Linear Logic: Resource Management.}
  @L{Game Theory: Economic Equilibrium.}
  @L{Refinement Logic: Work at many abstraction levels.}
- @L{Finitary Logic: zk-proofs (optional).}))
+ @L{Finitary Logic: zk-proofs (optional).}
+ ~
+ @fragment[#:index 2]{@C{An extensible framework!}}))
 
 (slide-group "Automatic Cascading Verification"
 (gslide () @h1{Semantic Tower}
@@ -195,7 +197,7 @@ blockchains and will address interoperability, scalability and privacy.
   ~
   @L{Address each issue at proper level of abstraction.}
   @fragment[#:index 2]{
-  @L~{Zoom in and out—at runtime.}}
+  @L~{Zoom in and out—at compile-time @em{and} runtime.}}
   ~
   @fragment[#:index 3]{
   @L{Regular developers @em{automatically} get proofs with Z3.}
@@ -287,18 +289,17 @@ blockchains and will address interoperability, scalability and privacy.
   ~
   @L{@em{Gambling}: Homomorphic encryption of card game hands.})
 
-(gslide () @h1{DSL: Abstract over Backend}
+(gslide () @h1{One DApp Many Backends}
   (table class: "noborder" id: "noborder"
     (tr @tR{This blockchain} (tC @em{vs}) @tL{That blockchain})
     (tr @tR{Interactive verification} (tC @em{vs}) @tL{Non-interactive enforcement})
     (tr @tR{Public computation} (tC @em{vs}) @tL{Private computation})
     (tr @tR{Slow and trustless} (tC @em{vs}) @tL{Fast semi-trusted middleman}))
   ~
-  @fragment[#:index 1]{
     @L~{Different sets of users have different needs from backends.}
-    @L~{Different blockchains offer different capabilities to backends.}}
-  ~
-  @fragment[#:index 2]{@(~)@(br)@em{One DApp, many backends.}})
+    @L~{Different blockchains offer different capabilities to backends.})
+
+
 
 (gslide () @h1{Blockchain-Agnostic Model}
   @p{Scalability}
@@ -348,7 +349,7 @@ blockchains and will address interoperability, scalability and privacy.
  ~
  @L{SHOW ME THE CODE!   @url{https://github.com/AlacrisIO}}))
 
-#;(slide-group "Appendix A: Consensus as Court"
+#|(slide-group "Appendix A: Consensus as Court"
 (gslide () @h1{}
   @L{Consensus as Court: fruitful analogy.}
   ~
@@ -357,7 +358,7 @@ blockchains and will address interoperability, scalability and privacy.
   ~
   @L{Scale any DApp with Mutual Knowledge Base.}
   ~
-  @L{zkproofs: privacy, fast validation, interop, gambling…}))
+  @L{zkproofs: privacy, fast validation, interop, gambling…}))|#
 
 
 (reveal)
