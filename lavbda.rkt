@@ -27,30 +27,6 @@ blockchains and will address interoperability, scalability and privacy.
 
 (require scribble/html "reveal.rkt")
 
-(define *white* "#ffffff")
-(define *gray* "#7f7f7f")
-(define *blue* "#0000ff")
-(define *light-blue* "#b4b4ff")
-(define *red* "#ff0000")
-(define *light-red* "#ffb4b4")
-(define *green* "#00ff00")
-(define *light-green* "#b4ffb4")
-
-(define (xth . x) (apply th fgcolor: *green* bgcolor: *light-blue* x))
-(define (xtd . x) (apply td fgcolor: *green* bgcolor: *light-red* x))
-(define (td+ . x) (apply td fgcolor: *green* bgcolor: *light-green* x))
-(define (td- . x) (apply td fgcolor: *green* bgcolor: *light-red* x))
-(define (td= . x) (apply td fgcolor: *green* bgcolor: *light-blue* x))
-
-(define (tC (x '())) (td style: "text-align: center; border: none;" x))
-(define (tL (x '())) (td style: "text-align: left; border: none;" x))
-(define (tR (x '())) (td style: "text-align: right; border: none;" x))
-
-
-(define (~ (repetitions 1)) (make-string repetitions #\u202F)) ; U+202F NARROW NO-BREAK SPACE > <
-(define (~~) (~ 10))
-(define (L~ . x) (apply L (~~) x))
-
 (slide ()
        @table[(tr(td width: "15%")
                  (td width: "33%"

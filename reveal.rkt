@@ -2,8 +2,9 @@
 
 (provide
  slide-group slide gslide
- L t C CB ~
- url image fragment color th* td* simple-table
+ L t C CB ~ ~~ L~
+ url image fragment color th* td* tL tR tC simple-table
+ *white* *gray* *blue* *light-blue* *red* *light-red* *green* *light-green*
  ;; comment
  reveal)
 
@@ -92,7 +93,9 @@
 (define *green* "#00ff00")
 (define *light-green* "#b4ffb4")
 
-(define ~ @p{ })
+(define (~ (repetitions 1)) (make-string repetitions #\u202F)) ; U+202F NARROW NO-BREAK SPACE > <
+(define (~~) (~ 10))
+(define (L~ . x) (apply L (~~) x))
 
 (define (spacing* l (space (br)))
   (cond
@@ -151,6 +154,10 @@
         (when fragment? data-fragment-index:) (when fragment? 1)
         (spacing right))
        (td width: td-width))))
+
+(define (tC (x '())) (td style: "text-align: center; border: none;" x))
+(define (tL (x '())) (td style: "text-align: left; border: none;" x))
+(define (tR (x '())) (td style: "text-align: right; border: none;" x))
 
 (define (simple-table contents)
   (letrec ((line (lambda (th . tds) (cons (th* th) (map td* tds))))
