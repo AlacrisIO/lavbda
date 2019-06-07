@@ -35,12 +35,12 @@
              section)))))
 (define group-title (make-parameter #f))
 (define-syntax-rule (slide-group title stuff ...)
-  (do-slide-group title (λ () (begin stuff ...)))) ;; was: list instead of begin
+  (do-slide-group title (λ () (list stuff ...))))
 (define (do-slide-group title thunk)
-  ;;(slide () ;; Disable nested slides for IOHK summit, because their "clicker" does left and right arrow.
+  (slide ()
    (slide () @(h1 title))
    (parameterize ([group-title title])
-     (thunk)));;)
+     (thunk))))
 
 (define (do-group-title)
   (when (group-title)
