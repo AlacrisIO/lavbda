@@ -2,7 +2,7 @@
 
 (provide
  slide-group slide gslide
- L t C CB ~ ~~ L~
+ L R t C CB ~ ~~ L~
  url image fragment color th* td* tL tR tC simple-table
  *white* *gray* *blue* *light-blue* *red* *light-red* *green* *light-green*
  ;; comment
@@ -71,6 +71,7 @@
     file))
 
 (define (L . x) (apply div align: 'left x))
+(define (R . x) (apply div align: 'right x))
 (define (t . x) x)
 (define (C . x) (apply div align: 'center x))
 (define (CB . x) (C (apply b x)))

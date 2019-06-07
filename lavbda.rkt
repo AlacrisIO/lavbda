@@ -40,11 +40,18 @@ blockchains and will address interoperability, scalability and privacy.
                              @(~ 4)𝔹@(~ 2)lockchain @(br)
                              @(~ 4)𝔻@(~ 2)ecentralized @(br)
                              @(~ 4)𝔸@(~)pplications})))]
+  ~ @(L(@small ~))
+  @C[style: "font-size: 1.2em; font-weight: bold;"]{
+    Why Writing Blockchain Applications is Hard, and @(br)
+    How Functional Programming Can Help
+  }
+
   ~
-  @p{François-René Rideau, @(~)@em{Alacris}}
-  @C{fare@"@"alacris.io}
+  @C{François-René Rideau, @(~)@em{Alacris} @(br)
+     @code[class: 'email]{fare@"@"alacris.io}}
   ~
-  @comment{Alacris Tech Talk 2019-04-11} @p{IOHK Summit, 2019-04-18}
+  @comment{Alacris Tech Talk 2019-04-11} @comment{IOHK Summit, 2019-04-18}
+  @C{LambdaConf 2019 Unconference, 2019-06-07}
   @url{https://alacrisio.github.io/lavbda/}) ;; lavbda.alacris.io
 
 (slide-group "Introduction: Challenges for Secure DApps"
