@@ -253,7 +253,7 @@ blockchains and will address interoperability, scalability and privacy.
 
 (gslide () @h1{Mutual Knowledge}
   @L{Winning Strategy: "there exists" not enough—"I know" needed.}
-  @L~{All evidence must be @em{Mutual Knowledge} (MK).}
+  @L~{All evidence must be @em{Mutual Knowledge} (MK).} ;; ⚠
   ~
   @L{Consensus (@em{Common Knowledge}, CK). State channels. Plasma.}
   @L~{Side-chains? Need a data availability engine, a.k.a. MKB.}
